@@ -23,6 +23,21 @@ module Demae
 
     desc 'apply', 'apply itamae recipes to environment'
     def apply(environment)
+      run(environment)
+    end
+
+    desc 'plan', 'check an execution plan before apply cmd.'
+    def plan(environment)
+      run(environment, dry_run: true)
+    end
+
+    private
+
+    def config_path(environment)
+      "#{CONFIG_DIR}/#{environment}.yml"
+    end
+
+    def run(environment, dry_run: false)
       config = YAML.load_file(config_path(environment))
       config.each do |server|
         server['hosts'].each do |host|
@@ -30,7 +45,8 @@ module Demae
             host: host,
             vagrant: false,
             ask_password: false,
-            sudo: true
+            sudo: true,
+            dry_run: dry_run
           }
           o = server.reject { |k, _| %w(hosts recipes).include? k }
           o = o.each_with_object({}) { |(k, v), memo| memo[k.to_sym] = v }
@@ -39,12 +55,6 @@ module Demae
           runner = Itamae::Runner.run(server['recipes'], :ssh, options)
         end
       end
-    end
-
-    private
-
-    def config_path(environment)
-      "#{CONFIG_DIR}/#{environment}.yml"
     end
   end
 end
