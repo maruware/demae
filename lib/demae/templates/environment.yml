@@ -1,6 +1,7 @@
 - hosts:
     - 123.456.7.8
-  ssh_key: ~/.ssh/my_key.pem
   recipes:
-    - entry.rb
-  node: web.yml
+    - roles/app.rb
+  user: my_name
+  key: ~/.ssh/my_key.pem
+  node_yaml: nodes/app-staging.yml
