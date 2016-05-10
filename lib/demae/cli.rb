@@ -52,6 +52,7 @@ module Demae
           o = o.each_with_object({}) { |(k, v), memo| memo[k.to_sym] = v }
           options.merge!(o)
 
+          Itamae.logger.info "Target: #{host}"
           runner = Itamae::Runner.run(server['recipes'], :ssh, options)
         end
       end
