@@ -1,6 +1,6 @@
 # Demae
 
-Demae is a node manager for itamae.
+**Demae** is Itamae ssh runner for nodes on environment.
 
 
 ## Installation
@@ -36,9 +36,11 @@ Then these files are created.
 
 ## Usage
 
-First, write itamae recipes.
+First, write itamae recipes.  
+And modify config/demae/staging.yml.
+
 And then execute:
 
 ```bash
-$ bundle exec demae apply production
+$ bundle exec demae apply staging
 ```

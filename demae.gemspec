@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ['maruware']
   spec.email         = ['me@maruware.com']
 
-  spec.summary       = 'Node manager for itamae'
-  spec.description   = 'Node manager for itamae'
+  spec.summary       = 'Itamae ssh runner for nodes on environment.'
+  spec.description   = 'Itamae ssh runner for nodes on environment.'
   spec.homepage      = 'https://github.com/maruware/demae'
 
   spec.files         = `git ls-files`.split($INPUT_RECORD_SEPARATOR)
