@@ -2,6 +2,11 @@
 
 **Demae** is Itamae ssh runner for nodes on environment.
 
+This enable:
+
+```
+$ bundle exec demae apply staging
+```
 
 ## Installation
 
@@ -13,7 +18,9 @@ gem 'demae'
 
 And then execute:
 
-    $ bundle
+```
+$ bundle
+```
 
 ## Initialize
 
@@ -41,6 +48,6 @@ And modify config/demae/staging.yml.
 
 And then execute:
 
-```bash
+```
 $ bundle exec demae apply staging
 ```
