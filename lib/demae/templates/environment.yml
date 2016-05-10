@@ -1,0 +1,6 @@
+- hosts:
+    - 123.456.7.8
+  ssh_key: ~/.ssh/my_key.pem
+  recipes:
+    - entry.rb
+  node: web.yml
